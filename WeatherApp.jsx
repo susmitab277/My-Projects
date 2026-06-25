@@ -1,0 +1,77 @@
+import {useState, useEffect} from 'react';
+import axios from 'axios';
+function WeatherApp(){
+    // const [city,setCity]=useState("Chennai");
+    // const [weather,setWeather] =useState(null);
+    // const [error,setError] = useState('');
+    const [state, setState] = useState({
+        city: "Chennai",
+        weather: null,
+        error: ''
+    })
+    const apiKey = 'ca7c56b18b1b368570d4a4a0febb11ff';
+    async function fetchWeather(){
+            try{
+                setState((prev)=>({
+                    ...prev,
+                    error: ''
+                }))
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${state.city}&appid=${apiKey}&units=metric`);
+                // const data = await res.json();
+                if(data.cod === "404"){
+                     setState((prev)=>({
+                    ...prev,
+                    error: 'City Not Found',
+                    weather: null
+                }))
+                }
+                 setState((prev)=>({
+                    ...prev,
+                    weather: response.data
+                }))
+            } catch(err){
+                 setState((prev)=>({
+                    ...prev,
+                    error: 'City Not Found',
+                    weather: null
+                }))
+            } finally{
+                
+            }
+        }
+    useEffect(()=>{
+        if(state.city.trim()===""){
+             setState((prev)=>({
+                    ...prev,
+                    error: 'Please enter city',
+                    weather: null
+                }))
+            return;
+        }
+        const timer = setTimeout(()=>{
+            fetchWeather();
+        },1000);
+        return()=> clearTimeout(timer);
+    },[state.city])
+    console.log(state)
+    return(
+        <>
+            <h1>Weather APP</h1>
+            <input type="text" value={state.city} onChange={(e)=>setState((prev)=>({
+                    ...prev,
+                   city: e.target.value
+                }))}/>
+            {state.error && <h3>{state.error}</h3>}
+            {state.weather && (
+                <div>
+                    <h2>{state.weather.name}</h2>
+                    <h3>{state.weather.main.temp}</h3>
+                    <p>Humidity: {state.weather.main.humidity}</p>
+                    <p>Wind Speed: {state.weather.wind.speed}km/h</p>
+                </div>
+            )}
+        </>
+    )
+}
+
+export default WeatherApp;
