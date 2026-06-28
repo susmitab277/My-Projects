@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sample.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <h1>Unlimited Movies, Shows & Entertainment</h1>
+    <h2>Starts at $199/month,cancel anytime.
+    </h2>
+    <h3 class="banner"> Ready to watch?Enter your email to create an account or sign in. </h3>
+   
+    >
+
+    <div class="email-box">
+
+        <input
+            type="email"
+            placeholder="Enter your email"
+        >
+
+        <button>
+            Get Started
+        </button>
+
+    </div>
+
+    <h3>Follow Us On</h3>
+
+     <div class="social-links">
+
+        <a href="https://www.instagram.com" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+        </a>
+
+        <a href="https://www.facebook.com" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+            Facebook
+        </a>
+
+        <a href="https://www.youtube.com" target="_blank">
+            <i class="fa-brands fa-youtube"></i>
+            YouTube
+        </a>
+
+    </div>
+
+    <select class="language-btn">
+
+    <option>English</option>
+
+    <option>Hindi</option>
+
+    <option>Bengali</option>
+
+        <option>Kannada</option>
+                <option>Tamil</option>
+
+                                <option>Telegu</option>
+                                                                <option>Malayalam</option>
+
+                                                                <option>French</option>
+                                                                                                                                <option>Dutch</option>
+
+
+
+
+
+</select>
+</body>
+</html>
